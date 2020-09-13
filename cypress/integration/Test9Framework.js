@@ -25,16 +25,20 @@ this.data=data
         cy.get('input[name="name"]:nth-child(2)').should('have.attr', 'minlength', '2')
         //check if disabled radio button is really disabled
         cy.get('#inlineRadio3').should('be.disabled')
-
         cy.get(':nth-child(2) > .nav-link').click()
-        cy.get('h4.card-title').each(($el, index, $list) => {
-            if($el.text().includes('Blackberry'))
-            {
-                cy.get('button.btn.btn-info').eq(index).click()
-            }
 
-        })
+        
+        // cy.get('h4.card-title').each(($el, index, $list) => {
+        //     if($el.text().includes('Blackberry'))
+        //     {
+        //         cy.get('button.btn.btn-info').eq(index).click()
+        //     }
 
+        // })
+
+        //the above commented out code is now a custom command in Support>command.js. Is shortened and used below.
+        cy.selectProduct('Blackberry')
+        cy.selectProduct('Nokia Edge')
         
 
         
