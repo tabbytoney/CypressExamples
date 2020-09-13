@@ -1,6 +1,6 @@
-describe('My Sixth Test Suite', function () {
+describe('My Seventh Test Suite', function () {
 
-    it('My Sixth Test Case', function () {
+    it('My Seventh Test Case', function () {
         cy.visit("https://www.rahulshettyacademy.com/AutomationPractice/")
 
         //getting url from href attribute and visitng it that way instead of a new window button
@@ -10,7 +10,7 @@ describe('My Sixth Test Suite', function () {
             cy.visit(url)
         })
 
-     
+      
     
 //fixtures
 
