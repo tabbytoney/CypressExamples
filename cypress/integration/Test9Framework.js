@@ -25,6 +25,8 @@ this.data=data
         cy.get('input[name="name"]:nth-child(2)').should('have.attr', 'minlength', '2')
         //check if disabled radio button is really disabled
         cy.get('#inlineRadio3').should('be.disabled')
+        //cy.pause() to stop the test for you to view until you resume in the test runner
+        //cy.debug() can be placed at the end of a line to also pause it while you see what's going wrong 
         cy.get(':nth-child(2) > .nav-link').click()
 
         
@@ -39,7 +41,16 @@ this.data=data
         //the above commented out code is now a custom command in Support>command.js. Is shortened and used below.
         cy.selectProduct('Blackberry')
         cy.selectProduct('Nokia Edge')
+
+        //this iterates through all the data values in example.json tied to our custom command. This is so we don't have to repeat the above steps for each new data value
+        this.data.productName
+
+        //what if more data is added than what you listed in example.json
+        this.data.productName.forEach(function(element) {
+            cy.selectProduct(element)
+        })
         
+        //when you run the test here you'll see 4 phones added to the cart because you've selected the two phones twice in the different commands in this file. 
 
         
 
