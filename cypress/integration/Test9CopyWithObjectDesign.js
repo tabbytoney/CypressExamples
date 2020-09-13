@@ -1,5 +1,6 @@
-/// <reference types = "Cypress" />
+// <reference types = "Cypress" />
 import HomePage from '../integration/pageObjects/HomePage'
+import ProductPage from '../integration/pageObjects/ProductPage'
 
 describe('My Ninth Test - Framework', function () {
     //this before pulls data from the fixture folder.
@@ -15,6 +16,7 @@ this.data=data
 
     it('My Ninth Test - Framework', function () {
         const homePage=new HomePage()
+        const productPage=new ProductPage()
             cy.visit("https://www.rahulshettyacademy.com/angularpractice/")
 
             homePage.getEditBox().type(this.data.name)
@@ -24,6 +26,15 @@ this.data=data
             homePage.getEntrepreneaur().should('be.disabled')
             Cypress.config('defaultCommandTimeout', 8000)
             homePage.getShopTab().click()
+
+            this.data.productName.forEach(function(element) {
+ 
+                cy.selectProduct(element)
+              }); 
+              productPage.checkOutButton().click()
+              cy.contains('Checkout').click()
+              cy.get('#country').type('India')
+              cy.get('.suggestions > ul > li > a').click()
 
 
         
