@@ -14,7 +14,7 @@ this.data=data
     
 
     it('My Ninth Test - Framework', function () {
-        cy.visit("https://www.rahulshettyacademy.com/angularpractice/")
+        cy.visit(Cypress.env('url'))
         //select name text box, type in Bob
         cy.get('input[name="name"]:nth-child(2)').type(this.data.name)
         //static dropdown for gender

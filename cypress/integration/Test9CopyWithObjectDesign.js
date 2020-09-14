@@ -1,6 +1,6 @@
 // <reference types = "Cypress" />
-import HomePage from '../integration/pageObjects/HomePage'
-import ProductPage from '../integration/pageObjects/ProductPage'
+import HomePage from '../support/pageObjects/HomePage'
+import ProductPage from '../support/pageObjects/ProductPage'
 
 describe('My Ninth Test - Framework', function () {
     //this before pulls data from the fixture folder.
@@ -16,7 +16,7 @@ describe('My Ninth Test - Framework', function () {
     it('My Ninth Test - Framework', function () {
         const homePage = new HomePage()
         const productPage = new ProductPage()
-        cy.visit("https://www.rahulshettyacademy.com/angularpractice/")
+        cy.visit(Cypress.env('url'))
 
         homePage.getEditBox().type(this.data.name)
         homePage.getGender().select(this.data.gender)
