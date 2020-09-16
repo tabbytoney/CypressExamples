@@ -9,7 +9,5 @@
         "examplePage": "https://www.rahulshettyacademy.com/seleniumPractise/#/"
     },
 
-    "retries": {
-        "runmode": 1
-    }
+    "retries": 1
 }

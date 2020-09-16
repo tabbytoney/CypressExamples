@@ -58,6 +58,8 @@ describe('My Ninth Test - Framework', function () {
         cy.get('.suggestions > ul > li > a').click()
         cy.get('#checkbox2').click({ force: true })
         cy.get('input[value="Purchase"]').click()
+
+        //how to handle alerts
         //cy.get('.alert').contains('Success! Thank you! Your order will be delivered in next few weeks :-).') This doesn't work
         cy.get('.alert').then(function (element) {
             const actualText = element.text()
